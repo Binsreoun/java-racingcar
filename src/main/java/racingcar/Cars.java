@@ -2,15 +2,14 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Cars {
+    private static final int MAX_CONDITION = 10;
+    private static final int MIN_CONDITION = 1;
     private final List<Car> cars;
-    private final int MOVE_NUMBER = 9;
 
     public int createRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(MOVE_NUMBER);
+        return (int) (MIN_CONDITION + Math.random() * MAX_CONDITION);
     }
 
     public Cars(List<Car> cars) {
@@ -29,7 +28,7 @@ public class Cars {
         return bar;
     }
 
-    public void moveCars(int count) {
+    public void moveCars() {
         for (Car car : cars) {
             int number = createRandomNumber();
             car.moveOrNot(number);
@@ -37,21 +36,21 @@ public class Cars {
         }
     }
 
-    public int maxPosition() {
+    public int findMaxPosition() {
         int maxPosition = 0;
         for (Car car : cars) {
-            maxPosition = car.biggestPosition(maxPosition);
+            maxPosition = car.extractBiggestPosition(maxPosition);
         }
         return maxPosition;
     }
 
-    public List<String> win(int max) {
-        List<String> winner = new ArrayList<>();
+    public List<String> findWinners(int maxPosition) {
+        List<String> winners = new ArrayList<>();
         for (Car car : cars) {
-            if (car.maxCheck(max)) {
-                winner.add(car.getCarName());
+            if (car.equalToPosition(maxPosition)) {
+                winners.add(car.getCarName());
             }
         }
-        return winner;
+        return winners;
     }
 }

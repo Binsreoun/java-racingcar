@@ -18,8 +18,8 @@ public class Car {
         }
     }
 
-    public void moveOrNot(int move) {
-        if (move >= MOVE_NUMBER) {
+    public void moveOrNot(int condition) {
+        if (condition >= MOVE_NUMBER) {
             this.position++;
         }
     }
@@ -32,14 +32,14 @@ public class Car {
         return name;
     }
 
-    public int biggestPosition(int position) {
+    public int extractBiggestPosition(int position) {
         if (this.position > position) {
             return this.position;
         }
         return position;
     }
 
-    public boolean maxCheck(int position) {
+    public boolean equalToPosition(int position) {
         return this.position == position;
     }
 }

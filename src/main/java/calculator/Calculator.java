@@ -21,8 +21,8 @@ public class Calculator {
         return a / b;
     }
 
-    public void nullCheck(String input) {
-        if (input == null || input.trim().equals(" ")) {
+    public void nullAndEmptyCheck(String input) {
+        if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException("입력값이 null입니다.");
         }
 

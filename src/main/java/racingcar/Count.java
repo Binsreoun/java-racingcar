@@ -10,4 +10,12 @@ public class Count {
     public int getTryNumber() {
         return tryNumber;
     }
+
+    public boolean isPlaying() {
+        return tryNumber > 0;
+    }
+
+    public Count minus() {
+        return new Count(tryNumber - 1);
+    }
 }

@@ -3,7 +3,7 @@ package calculator;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args)  {
 
         Calculator calculator = new Calculator();
 
@@ -11,7 +11,7 @@ public class Main {
 
         System.out.print("input : ");
         String input = scanner.nextLine();
-        calculator.nullCheck(input);
+        calculator.nullAndEmptyCheck(input);
         calculator.operationCheck(input);
 
         String[] arithmeticOperation = input.split(" ");

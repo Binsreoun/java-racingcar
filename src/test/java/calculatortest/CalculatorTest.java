@@ -3,6 +3,7 @@ package calculatortest;
 import calculator.Calculator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,10 +38,10 @@ public class CalculatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {""})
+    @NullAndEmptySource
     void nullCheckTest(String input) {
         assertThatIllegalArgumentException().isThrownBy(() -> {
-            calculator.nullCheck(input);
+            calculator.nullAndEmptyCheck(input);
         });
     }
 
